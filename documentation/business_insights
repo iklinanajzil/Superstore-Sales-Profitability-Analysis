@@ -1,0 +1,696 @@
+# Business Insights — Superstore Sales & Profitability Analysis
+
+## 1. Executive Summary
+
+The Superstore dataset contains **51,290 transaction records** covering the period from **January 1, 2011 to December 31, 2014**. The dataset contains **25,035 unique orders**, **795 unique customers**, **3,788 unique products**, **7 markets**, and **3 product categories**.
+
+During the four-year period, the business generated approximately **$7.84M in sales** and **$1.47M in profit**, resulting in an overall **18.74% profit margin**.
+
+Sales and profit increased consistently from 2011 to 2014. However, the analysis shows that revenue growth does not automatically translate into equally strong profitability. Profitability varies substantially across markets, categories, products, and especially discount levels.
+
+The most significant business issue identified is the strong relationship between **higher discounts and declining profitability**. Transactions with discounts above 20% increasingly generate negative profit margins, with the highest discount band showing substantial losses.
+
+---
+
+## 2. Business Objective
+
+The objective of this analysis is to evaluate Superstore's sales and profitability performance from 2011 to 2014 and identify the main factors influencing business performance.
+
+The analysis focuses on:
+
+* Sales and profit trends over time
+* Market performance
+* Category profitability
+* Discount impact on profitability
+* Product-level profitability
+* Loss-making products and markets
+* Return rate by category
+* Identification of business risks and opportunities
+
+The final Power BI dashboard is designed to help decision-makers monitor performance and identify areas requiring further action.
+
+---
+
+## 3. Dataset Overview
+
+| Metric                |         Value |
+| --------------------- | ------------: |
+| Total Rows            |        51,290 |
+| Unique Orders         |        25,035 |
+| Unique Customers      |           795 |
+| Unique Products       |         3,788 |
+| Markets               |             7 |
+| Categories            |             3 |
+| First Order Date      |    2011-01-01 |
+| Last Order Date       |    2014-12-31 |
+| Total Sales           | $7,839,935.78 |
+| Total Profit          | $1,469,034.82 |
+| Overall Profit Margin |        18.74% |
+
+### Product Categories
+
+* Furniture
+* Office Supplies
+* Technology
+
+### Markets
+
+* Africa
+* APAC
+* Canada
+* EMEA
+* EU
+* LATAM
+* US
+
+---
+
+## 4. Data Validation
+
+Before performing exploratory analysis, the dataset was validated using SQL.
+
+The validation process included:
+
+* Row count verification
+* Duplicate checking
+* NULL value checking
+* Date range validation
+* Unique order validation
+* Unique customer validation
+* Unique product validation
+* Market and category validation
+* Numeric field validation
+
+The dataset contains 51,290 records, and the primary analytical fields were checked for consistency before being used in the Power BI analysis.
+
+---
+
+# 5. Sales & Profit Performance
+
+## 5.1 Annual Performance
+
+Sales and profit increased consistently throughout the four-year period.
+
+| Year |  Sales |   Profit | YoY Sales Growth | Profit Margin |
+| ---- | -----: | -------: | ---------------: | ------------: |
+| 2011 | $1.38M | $248.94K |                — |        18.05% |
+| 2012 | $1.68M | $307.42K |           22.01% |        18.27% |
+| 2013 | $2.11M | $408.51K |           25.31% |        19.38% |
+| 2014 | $2.67M | $504.17K |           26.65% |        18.88% |
+
+### Key Finding
+
+Sales increased from approximately **$1.38M in 2011 to $2.67M in 2014**, representing strong and consistent business growth.
+
+The highest annual growth occurred in **2014, with sales increasing 26.65% compared with 2013**.
+
+Profit also increased from **$248.94K in 2011 to $504.17K in 2014**.
+
+Although profit increased, profit margin remained relatively stable around 18–19%, indicating that the business successfully grew revenue without a major deterioration in overall profitability.
+
+### Business Interpretation
+
+The company demonstrates a healthy growth trajectory. However, the relatively stable profit margin suggests that the increase in revenue is not accompanied by a significant structural improvement in profitability.
+
+Therefore, future growth strategies should focus not only on increasing sales volume but also on protecting and improving margins.
+
+---
+
+# 6. Market Performance
+
+## 6.1 Sales and Profitability by Market
+
+| Market |    Sales |   Profit | Profit Margin | Sales Contribution |
+| ------ | -------: | -------: | ------------: | -----------------: |
+| APAC   |   $2.00M | $437.58K |        21.85% |             25.54% |
+| EU     |   $1.80M | $372.83K |        20.66% |             23.01% |
+| LATAM  |   $1.56M | $221.64K |        14.17% |             19.95% |
+| US     |   $1.31M | $286.40K |        21.94% |             16.65% |
+| EMEA   | $575.79K |  $43.90K |         7.62% |              7.34% |
+| Africa | $538.36K |  $88.87K |        16.51% |              6.87% |
+| Canada |  $50.33K |  $17.82K |        35.40% |              0.64% |
+
+### Key Findings
+
+**APAC** is the largest market by sales, contributing approximately **25.54% of total sales**.
+
+**EU** is the second-largest market, contributing approximately **23.01% of total sales**.
+
+**US** has a relatively strong profit margin of **21.94%**, despite generating lower sales than APAC and EU.
+
+**Canada** has the highest profit margin at **35.40%**, but its sales contribution is only **0.64%**, indicating that its high margin is associated with a relatively small business volume.
+
+**EMEA** represents a concern because its profit margin is only **7.62%**, substantially below the overall company margin of 18.74%.
+
+### Business Interpretation
+
+APAC and EU should remain important strategic markets because they combine high sales contribution with healthy profitability.
+
+EMEA requires further investigation because its relatively low margin indicates potential issues related to pricing, discounting, shipping costs, product mix, or market-specific operating costs.
+
+Canada should not necessarily be prioritized solely because of its high margin. Its small sales volume means that the market currently has limited impact on overall company performance.
+
+---
+
+# 7. Category Performance
+
+## 7.1 Overall Category Performance
+
+| Category        |  Sales |   Profit | Profit Margin |
+| --------------- | -----: | -------: | ------------: |
+| Furniture       | $2.41M | $286.78K |        11.90% |
+| Office Supplies | $2.79M | $518.47K |        18.57% |
+| Technology      | $2.64M | $663.78K |        25.10% |
+
+### Key Findings
+
+**Office Supplies** generates the highest sales at approximately **$2.79M**.
+
+However, **Technology** is the most profitable category, generating approximately **$663.78K profit** and a **25.10% profit margin**.
+
+Furniture generates approximately **$2.41M in sales**, but its profit margin is only **11.90%**, making it the least profitable category.
+
+### Business Interpretation
+
+The difference between sales performance and profitability is important.
+
+Office Supplies generates the highest revenue, but Technology generates substantially more profit despite having slightly lower sales.
+
+This suggests that management should evaluate category performance using both **sales volume and profitability**, rather than relying on revenue alone.
+
+Technology represents an attractive category for growth, while Furniture requires closer margin management.
+
+---
+
+# 8. Market × Category Performance
+
+The combination of market and category analysis reveals that profitability varies considerably depending on where a product category is sold.
+
+### Selected Findings
+
+* Technology in **Canada** has a profit margin of approximately **42.32%**.
+* Technology in **US** has a profit margin of approximately **38.09%**.
+* Technology in **APAC** has a profit margin of approximately **28.19%**.
+* Technology in **EU** has a profit margin of approximately **24.06%**.
+* Technology in **LATAM** has a profit margin of approximately **18.58%**.
+* Technology in **EMEA** has a profit margin of only **9.00%**.
+
+Furniture also shows significant variation:
+
+* Canada: **29.57%**
+* APAC: **19.29%**
+* EU: **16.13%**
+* Africa: **12.24%**
+* EMEA: **7.48%**
+* LATAM: **7.31%**
+* US: **4.05%**
+
+### Business Interpretation
+
+The same product category can have very different profitability depending on the market.
+
+Therefore, a single global pricing or discount strategy may not be optimal.
+
+Market-specific profitability should be considered when designing pricing, discount, and product strategies.
+
+---
+
+# 9. Discount & Profitability Analysis
+
+## 9.1 Discount Group
+
+The analysis groups transactions into three discount groups:
+
+* Low Discount
+* Medium Discount
+* High Discount
+
+| Discount Group  | Transactions |  Sales |    Profit | Profit Margin |
+| --------------- | -----------: | -----: | --------: | ------------: |
+| Low Discount    |       33,688 | $5.40M |    $2.11M |        39.12% |
+| Medium Discount |        7,241 | $1.29M |  $152.10K |        11.78% |
+| High Discount   |       10,361 | $1.15M | -$793.53K |       -68.79% |
+
+### Key Finding
+
+High-discount transactions generate approximately **$1.15M in sales but result in a loss of approximately $793.53K**.
+
+This indicates that aggressive discounting has a substantial negative effect on profitability.
+
+---
+
+# 10. Detailed Discount Band Analysis
+
+| Discount Band | Transactions |    Sales |    Profit | Profit Margin |
+| ------------- | -----------: | -------: | --------: | ------------: |
+| 0%            |       29,009 |   $4.28M |    $1.77M |        41.36% |
+| 1–10%         |        4,679 |   $1.11M |  $339.77K |        30.50% |
+| 11–20%        |        6,274 |   $1.05M |  $173.25K |        16.53% |
+| 21–30%        |          967 | $243.10K |  -$21.16K |        -8.70% |
+| 31–40%        |        3,400 | $503.46K | -$166.12K |       -33.00% |
+| 41–50%        |        2,789 | $345.90K | -$214.83K |       -62.11% |
+| 51–60%        |        2,028 | $168.94K | -$173.42K |      -102.65% |
+| 61–70%        |        1,826 | $121.92K | -$197.48K |      -161.97% |
+| >70%          |          318 |  $13.30K |  -$41.68K |      -313.47% |
+
+### Key Finding
+
+Profitability declines sharply as discount increases.
+
+The analysis shows that:
+
+* 0% discount → **41.36% margin**
+* 1–10% → **30.50%**
+* 11–20% → **16.53%**
+* 21–30% → **-8.70%**
+* > 70% → **-313.47%**
+
+The transition from positive to negative profitability occurs around the **21–30% discount range**.
+
+### Business Interpretation
+
+Discounting appears to be one of the most important profitability drivers in the dataset.
+
+While discounts can increase sales volume, excessive discounts can destroy the contribution margin of transactions.
+
+Therefore, discount decisions should consider the underlying product margin rather than being applied uniformly.
+
+---
+
+# 11. Discount Impact by Category
+
+The negative effect of high discounts is visible across all three product categories.
+
+### Furniture
+
+Furniture maintains a strong margin at 0% discount (**43.16%**) but becomes increasingly loss-making at higher discount levels.
+
+At discounts above 20%, profitability becomes negative.
+
+### Office Supplies
+
+Office Supplies also shows a strong margin at 0% discount (**33.90%**), but profitability declines significantly as discounts increase.
+
+### Technology
+
+Technology has the strongest profitability at low discount levels, with a **49.50% margin at 0% discount**.
+
+However, profitability also becomes negative at higher discount levels.
+
+### Business Interpretation
+
+The discount-profitability relationship is not limited to one category.
+
+This suggests that discount governance should be applied across the business, while allowing category-specific thresholds based on product economics.
+
+---
+
+# 12. Product Profitability
+
+Product-level analysis was conducted to identify products generating high sales as well as products causing significant losses.
+
+Several products have negative profit despite generating meaningful sales.
+
+Examples include:
+
+* Cubify CubeX 3D Printer Double Head Print
+* Motorola Smart Phone, Cordless
+* Lexmark MX611dhe Monochrome Laser Printer
+* Cubify CubeX 3D Printer Triple Head Print
+* Bevis Round Table, Adjustable Height
+* Bevis Computer Table, Fully Assembled
+* Rogers Computer Table
+* Chromcraft Bull-Nose Wood Oval Conference Tables & Bases
+* Bevis Wood Table, with Bottom Storage
+* Lesro Train Table, Rectangular
+
+### Business Interpretation
+
+Category-level analysis alone can hide product-level problems.
+
+For example, Technology is the most profitable category overall, but several Technology products generate substantial losses.
+
+Therefore, management should monitor profitability at the product level in addition to category-level performance.
+
+---
+
+# 13. Loss-Making Product Analysis
+
+The analysis identified substantial differences in the number of loss-making products across markets.
+
+| Market | Total Products | Loss-Making Products | Loss-Making % |
+| ------ | -------------: | -------------------: | ------------: |
+| EMEA   |          1,645 |                  586 |        35.62% |
+| APAC   |          1,913 |                  573 |        29.95% |
+| LATAM  |          1,869 |                  512 |        27.39% |
+| Africa |          1,607 |                  420 |        26.14% |
+| EU     |          1,856 |                  411 |        22.14% |
+| US     |          1,841 |                  299 |        16.24% |
+| Canada |            326 |                    0 |         0.00% |
+
+### Key Finding
+
+EMEA has the highest proportion of loss-making products, with approximately **35.62%** of products generating negative profit.
+
+APAC has the largest absolute number of loss-making products after EMEA, with **573 products**.
+
+Canada has no loss-making products in the analyzed data, although its relatively small number of products and low sales contribution should be considered when interpreting this result.
+
+---
+
+# 14. Loss-Making Products by Market
+
+The total loss generated by loss-making products also varies by market.
+
+| Market | Loss-Making Products | Total Loss |
+| ------ | -------------------: | ---------: |
+| APAC   |                  573 |  -$114.91K |
+| EU     |                  411 |  -$109.30K |
+| LATAM  |                  512 |   -$99.08K |
+| EMEA   |                  586 |   -$80.57K |
+| US     |                  299 |   -$77.07K |
+| Africa |                  420 |   -$58.89K |
+
+### Business Interpretation
+
+APAC generates the largest aggregate loss from loss-making products, despite being the largest sales market and having a healthy overall profit margin.
+
+This suggests that strong market-level performance can coexist with significant product-level problems.
+
+The priority should therefore be to identify and address the specific products causing losses rather than judging an entire market as underperforming.
+
+---
+
+# 15. Most Significant Loss-Making Products
+
+Several products generate particularly large losses.
+
+| Market | Category        | Product                                                  |   Sales |   Profit |
+| ------ | --------------- | -------------------------------------------------------- | ------: | -------: |
+| US     | Technology      | Cubify CubeX 3D Printer Double Head Print                |  $11.10 | -$88.80K |
+| EU     | Office Supplies | Hoover Stove, White                                      | $578.16 |  -$4.96K |
+| US     | Technology      | Lexmark MX611dhe Monochrome Laser Printer                |  $16.83 |  -$4.59K |
+| US     | Technology      | Cubify CubeX 3D Printer Triple Head Print                |   $8.00 |  -$3.84K |
+| EMEA   | Technology      | Motorola Smart Phone, Cordless                           | $649.94 |  -$3.77K |
+| LATAM  | Technology      | Samsung Smart Phone, Cordless                            |  $1.55K |  -$3.76K |
+| EU     | Furniture       | Office Star Executive Leather Armchair, Black            | $987.52 |  -$3.07K |
+| US     | Furniture       | Chromcraft Bull-Nose Wood Oval Conference Tables & Bases | $340.59 |  -$2.88K |
+| LATAM  | Furniture       | Lesro Computer Table, Fully Assembled                    |  $1.20K |  -$2.80K |
+| APAC   | Technology      | Apple Smart Phone, Full Size                             |  $27.25 |  -$2.74K |
+
+### Important Observation
+
+Some products show extremely large negative profit relative to their recorded sales.
+
+These records should be investigated further to determine whether the losses are caused by:
+
+* Excessive discounts
+* High shipping costs
+* Incorrect pricing
+* Cost structure
+* Data quality issues
+* Special transactions
+* Product-specific commercial agreements
+
+The analysis should therefore be treated as a **business investigation starting point**, rather than an automatic recommendation to discontinue products.
+
+---
+
+# 16. Loss-Making Transactions
+
+Transaction-level analysis provides additional evidence of the profitability issue.
+
+Several high-loss transactions involve:
+
+* Technology products
+* High discounts
+* Negative profit
+* Significant shipping costs
+
+For example, the largest loss-making transactions include products such as:
+
+* Cubify CubeX 3D Printer Double Head Print
+* Motorola Smart Phone, Cordless
+* Cubify CubeX 3D Printer Triple Head Print
+* Lexmark MX611dhe Monochrome Laser Printer
+* Apple Smart Phone, Full Size
+* Samsung Smart Phone, Cordless
+
+Some of these transactions have discounts between **40% and 70%**, reinforcing the observed relationship between aggressive discounting and negative profitability.
+
+---
+
+# 17. Return Rate Analysis
+
+Return rate was analyzed across product categories.
+
+The dashboard indicates that **Furniture has the highest return rate**, followed by Technology and Office Supplies.
+
+### Business Interpretation
+
+A high return rate can indicate potential issues related to:
+
+* Product quality
+* Product expectations
+* Product descriptions
+* Customer experience
+* Shipping damage
+* Product suitability
+
+Furniture deserves additional investigation because it combines:
+
+* The lowest overall category profit margin
+* The highest return rate
+
+This combination suggests that Furniture may represent an important area for operational and profitability improvement.
+
+---
+
+# 18. Overall Business Story
+
+The Superstore business demonstrates strong revenue growth from 2011 to 2014, with sales increasing from approximately $1.38M to $2.67M. Profit also increased over the same period, while the overall profit margin remained relatively stable.
+
+However, the analysis reveals that revenue growth alone does not fully represent business health.
+
+Profitability varies substantially across markets and product categories. APAC and EU are the strongest contributors to revenue, while EMEA shows relatively weak profitability. Technology is the most profitable category overall, although several Technology products generate significant losses.
+
+The most important profitability driver identified is discounting. Profit margin declines consistently as discount levels increase, becoming negative from the 21–30% discount range and deteriorating further at higher discount levels.
+
+At the product level, a relatively small number of highly loss-making products can have a disproportionate impact on profitability. This means that management should complement high-level sales reporting with product-level profitability monitoring.
+
+Furniture presents another potential area of concern because it has the lowest category profit margin and the highest return rate.
+
+Overall, the business has a strong growth foundation, but future performance improvement should focus on **profitable growth rather than sales growth alone**.
+
+---
+
+# 19. Business Recommendations
+
+## Recommendation 1 — Establish Discount Governance
+
+Review and control discounts, particularly transactions exceeding **20%**.
+
+Discounts should be evaluated against:
+
+* Product margin
+* Market
+* Category
+* Shipping cost
+* Customer segment
+* Expected sales volume
+
+A discount approval threshold could be introduced for high-discount transactions.
+
+---
+
+## Recommendation 2 — Investigate Loss-Making Products
+
+Conduct a detailed review of consistently loss-making products.
+
+For each product, evaluate:
+
+* Sales volume
+* Profit margin
+* Discount level
+* Shipping cost
+* Market
+* Category
+* Transaction frequency
+
+Possible actions include:
+
+* Repricing
+* Reducing discount levels
+* Negotiating supplier costs
+* Reviewing shipping arrangements
+* Changing product positioning
+* Discontinuing products only after further investigation
+
+---
+
+## Recommendation 3 — Prioritize Profitable Growth
+
+Technology demonstrates the strongest overall category profitability.
+
+The company should consider expanding profitable Technology products while continuously monitoring product-level exceptions.
+
+Growth decisions should prioritize:
+
+> Revenue × Profitability
+
+rather than revenue alone.
+
+---
+
+## Recommendation 4 — Develop Market-Specific Strategies
+
+APAC and EU should remain strategic growth markets because they combine strong sales contribution with healthy profitability.
+
+EMEA requires a profitability improvement strategy because its overall margin is significantly lower than the company average.
+
+Market-specific strategies should consider differences in:
+
+* Product mix
+* Pricing
+* Discounting
+* Shipping costs
+* Customer behavior
+* Return patterns
+
+---
+
+## Recommendation 5 — Investigate Furniture Returns
+
+Furniture has both the **lowest category profit margin** and the **highest return rate**.
+
+Management should investigate whether returns are related to:
+
+* Product quality
+* Shipping damage
+* Product descriptions
+* Customer expectations
+* Specific products or sub-categories
+
+Reducing unnecessary returns could improve both customer experience and profitability.
+
+---
+
+## Recommendation 6 — Monitor Product-Level Profitability
+
+A product should not be evaluated solely based on sales volume.
+
+The Power BI dashboard should be used to monitor:
+
+* Total Sales
+* Total Profit
+* Profit Margin
+* Discount
+* Return Rate
+* Market
+* Category
+
+The Product Detail drill-through page can then be used to investigate individual products and their loss-making transactions.
+
+---
+
+# 20. Recommended Management Priorities
+
+Based on the analysis, the recommended priority order is:
+
+### High Priority
+
+1. Review high-discount transactions.
+2. Investigate the largest loss-making products.
+3. Analyze EMEA's low profitability.
+4. Investigate Furniture's high return rate.
+
+### Medium Priority
+
+5. Develop market-specific discount and pricing strategies.
+6. Improve profitability of low-margin categories.
+7. Monitor product-level profitability continuously.
+
+### Long-Term
+
+8. Continue expanding high-performing markets and categories.
+9. Develop a profitability-focused pricing strategy.
+10. Establish recurring BI monitoring for sales, profit, discount, returns, and product performance.
+
+---
+
+# 21. Dashboard Usage
+
+The Power BI dashboard provides two levels of analysis.
+
+### Executive Overview
+
+The Executive Overview provides:
+
+* Sales and profit KPIs
+* Annual sales and profit trends
+* Market performance
+* Category performance
+* Discount-profitability relationship
+* Return rate
+* Top 10 loss-making products
+* Dynamic key findings
+* Dynamic business story
+* Dynamic recommendations
+
+### Product Detail
+
+The Product Detail page uses Power BI drill-through to investigate individual products.
+
+Users can examine:
+
+* Product sales
+* Product profit
+* Profit margin
+* Market performance
+* Discount impact
+* Loss-making transactions
+* Product status
+
+This allows users to move from high-level business performance to detailed product-level investigation.
+
+---
+
+# 22. Analytical Limitations
+
+The analysis identifies relationships and patterns in the dataset, but the results should not automatically be interpreted as causal relationships.
+
+For example, the strong relationship between discount and negative profitability does not necessarily prove that discounting alone caused every loss.
+
+Other factors may contribute, including:
+
+* Product cost
+* Shipping cost
+* Product mix
+* Market conditions
+* Customer segment
+* Order characteristics
+* Data quality
+
+Further analysis would be required to establish causality.
+
+In addition, some extreme product-level profit values should be investigated for potential data anomalies or unusual transaction conditions before making major business decisions.
+
+---
+
+# 23. Conclusion
+
+The Superstore analysis shows a business with strong and consistent revenue growth but several important profitability challenges.
+
+The key strategic message is:
+
+> **The business should shift its focus from revenue growth alone toward sustainable, profitable growth.**
+
+The most important areas for improvement are:
+
+* Controlling excessive discounts
+* Investigating loss-making products
+* Improving low-performing markets
+* Monitoring product-level profitability
+* Reducing high return rates, particularly in Furniture
+
+By combining SQL-based exploratory analysis with an interactive Power BI dashboard, stakeholders can move from identifying performance trends to investigating the underlying business drivers and making more informed decisions.
