@@ -538,7 +538,7 @@ When filters are applied, the KPIs, charts, and business insights update accordi
 
 The dashboard can also be filtered by **Year and Category**.
 
-![Executive Overview Year Category Filter](screenshots/screenshots/Executive_Overview_Filter_Tahun_Category.png)
+![Executive Overview Year Category Filter](screenshots/Executive_Overview_Filter_Tahun_Category.png)
 
 This allows users to investigate category-specific performance over a selected period.
 
