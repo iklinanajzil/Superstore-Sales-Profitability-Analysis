@@ -520,7 +520,7 @@ The dashboard contains:
 
 The main Executive Overview provides a complete high-level view of business performance without applying additional filters.
 
-![Executive Overview](screenshots/executive_overview.png)
+![Executive Overview](screenshots/Executive_Overview.png)
 
 ---
 
@@ -528,7 +528,7 @@ The main Executive Overview provides a complete high-level view of business perf
 
 The dashboard supports dynamic filtering by **Year and Market**.
 
-![Executive Overview Year Market Filter](screenshots/executive_overview_filter_year_market.png)
+![Executive Overview Year Market Filter](screenshots/Executive Overview Filter Tahun dan Market.png)
 
 When filters are applied, the KPIs, charts, and business insights update according to the selected context.
 
@@ -538,7 +538,7 @@ When filters are applied, the KPIs, charts, and business insights update accordi
 
 The dashboard can also be filtered by **Year and Category**.
 
-![Executive Overview Year Category Filter](screenshots/executive_overview_filter_year_category.png)
+![Executive Overview Year Category Filter](screenshots/screenshots/Executive Overview Filter Tahun dan Category.png)
 
 This allows users to investigate category-specific performance over a selected period.
 
@@ -552,7 +552,7 @@ Custom report-page tooltips were created to provide additional context without o
 
 The Market tooltip provides additional information about the selected market.
 
-![Market Tooltip](screenshots/Tooltip_market.png)
+![Market Tooltip](screenshots/Tooltip Market.png)
 
 ---
 
@@ -560,7 +560,7 @@ The Market tooltip provides additional information about the selected market.
 
 The Discount tooltip provides additional information about profitability at different discount levels.
 
-![Discount Tooltip](screenshots/tooltip_discount.png)
+![Discount Tooltip](screenshots/Tooltip Discount.png)
 
 ---
 
@@ -568,7 +568,7 @@ The Discount tooltip provides additional information about profitability at diff
 
 The Loss-Making tooltip provides additional context about loss-making product performance.
 
-![Loss-Making Tooltip](screenshots/tooltip_loss_making.png)
+![Loss-Making Tooltip](screenshots/Tooltip Loss Making.png)
 
 ---
 
@@ -578,7 +578,7 @@ The dashboard includes a **Product Detail Drill-Through** page.
 
 Users can select a product from the main dashboard and navigate to a dedicated product-level analysis page.
 
-![Product Detail Drill Through](screenshots/drillthrough_product_detail.png)
+![Product Detail Drill Through](screenshots/Drill-Through Product Detail.png)
 
 The drill-through page allows deeper investigation of:
 
